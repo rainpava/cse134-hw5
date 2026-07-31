@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    grid-template-areas: 
+        "nav"
+        "main";
+    grid-template-rows: 4rem auto;
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+nav {
+    grid-area: nav;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: var(--panel-color1);
+
+    > #links > a {
+        font-size: 1.5rem;
+        margin-right: 2rem;
+        color: var(--text-color1);
+    }
+}
+
+main {
+    grid-area: main;
+}
+
+#debug-button {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
