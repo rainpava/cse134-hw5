@@ -5,14 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <link rel="icon" href="src/favicon.ico">
-    <link id="debug-styles" rel="stylesheet" href="styles/debug.css">
+    <script>
+        try {
+            const theme = localStorage.getItem("theme");
+            console.log(theme);
+            if (theme) {
+                document.documentElement.dataset.theme = theme;
+            }
+        } catch {
+            console.log("Could not get from localStorage");
+        }
+    </script>
+    <!-- <link id="debug-styles" rel="stylesheet" href="styles/debug.css"> -->
     <link rel="stylesheet" href="styles/tokens.css">
     <link rel="stylesheet" href="styles/global.css">
+    <script src="js/debug.js" defer></script>
+    <script src="js/index.js" defer></script>
     <title>Ralph Valdez</title>
 </head>  
 <body>
 <nav>
-    <section
+    <section id="theme-picker">
+        <button type="button" aria-pressed="">DARK MODE</button>
+        <button type="button" aria-pressed="">LIGHT MODE</button>
+    </section>
     <section id="links">
         <a href="index.html">HOME</a>
         <a href="projects.html">PROJECTS</a>
@@ -22,13 +38,11 @@
         <a href="contact.html">CONTACT</a>
     </section>
 </nav>
-</nav>
-<main>
-    <h1>Ralph Valdez</h1>
-    <h2>Undergraduate Student @ UCSD</h2>
-    <h3>Computer Science & Applied Mathematics</h3>
+<main class="hero">
+    <h1 class="hero">Ralph Valdez</h1>
+    <h2 class="hero">Undergraduate Student @ UCSD</h2>
+    <h3 class="hero">Computer Science & Applied Mathematics</h3>
 </main>
-<button id="debug-button" type="button">Disable Debug</button>
-<script src="js/debug.js"></script>
+<!-- <button id="debug-button" type="button">Disable Debug</button> -->
 </body>  
 </html>

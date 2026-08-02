@@ -5,19 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <link rel="icon" href="src/favicon.ico">
-    <link rel="stylesheet" href="styles/debug.css">
+    <script>
+        try {
+            const theme = localStorage.getItem("theme");
+            console.log(theme);
+            if (theme) {
+                document.documentElement.dataset.theme = theme;
+            }
+        } catch {
+            console.log("Could not get from localStorage");
+        }
+    </script>
+    <!-- <link id="debug-styles" rel="stylesheet" href="styles/debug.css"> -->
     <link rel="stylesheet" href="styles/tokens.css">
     <link rel="stylesheet" href="styles/global.css">
+    <script src="js/debug.js" defer></script>
+    <script src="js/index.js" defer></script>
     <title>Contact Me</title>
 </head>  
 <body>
 <nav>
-    <a href="index.html">HOME</a>
-    <a href="projects.html">PROJECTS</a>
-    <a href="experience.html">EXPERIENCE</a>
-    <a href="timeline.html">TIMELINE</a>
-    <a href="about.html">ABOUT</a>
-    <a href="contact.html">CONTACT</a>
+    <section id="theme-picker">
+        <button type="button" aria-pressed="">DARK MODE</button>
+        <button type="button" aria-pressed="">LIGHT MODE</button>
+    </section>
+    <section id="links">
+        <a href="index.html">HOME</a>
+        <a href="projects.html">PROJECTS</a>
+        <a href="experience.html">EXPERIENCE</a>
+        <a href="timeline.html">TIMELINE</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+    </section>
 </nav>
 <main>
     <h1>Contact me</h1>

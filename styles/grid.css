@@ -1,0 +1,59 @@
+main > section {
+    display: grid;
+    grid-template-areas:
+        "media card";
+    grid-template-columns: 40% 60%;
+    margin: 0 4rem 2rem 4rem;
+    border: 3px var(--border-color2) solid;
+    border-radius: 30px;
+    background-color: var(--background-color2);
+
+    .card {
+        grid-area: card;
+        margin: 2rem;
+    }
+
+    > *:not(.card) {
+        grid-area: media;
+        place-self: center;
+        max-width: 90%;
+        margin: 2rem;
+    }
+
+
+    > p {
+        grid-area: text;
+        align-self: center;
+        margin: 3rem;
+    }
+
+    box-shadow: var(--panel-box-shadow);
+}
+
+main > section:first-child {
+    margin-top: 2rem;
+}
+
+@media (max-width: 750px) {
+    main > section {
+        grid-template-areas:
+            "media"
+            "card";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+
+        margin: 0 1rem 2rem 1rem;
+    }
+
+    main > section .card {
+        grid-area: card;
+        margin: 1.5rem;
+    }
+
+    main > section > *:not(.card) {
+        grid-area: media;
+        max-width: 90%;
+        margin: 1.5rem auto;
+        justify-self: center;
+    }
+}

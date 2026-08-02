@@ -1,0 +1,71 @@
+main > section {
+    display: grid;
+    grid-template-areas:
+        "h h" 
+        "media text";
+    grid-template-columns: 60% 40%;
+    grid-template-rows: auto 1fr;
+    margin: 0 4rem 2rem 4rem;
+    border: var(--panel-border);
+    border-radius: var(--panel-border-radius);
+    background-color: var(--background-color2);
+
+    > h1, h2, h3, h4, h5, h6 {
+        grid-area: h;
+        margin: 2rem;
+    }
+
+    > *:not(p, h1, h2, h3, h4, h5, h6) {
+        grid-area: media;
+        place-self: center;
+        max-width: 90%;
+        margin: 2rem;
+    }
+
+
+    > p, > .card {
+        grid-area: text;
+        align-self: center;
+        margin: 3rem;
+    }
+
+    box-shadow: var(--panel-box-shadow);
+}
+
+main > section:first-child {
+    margin-top: 2rem;
+
+    > h1, h2, h3, h4, h5, h6 {
+        margin: 2rem;
+    }
+}
+
+@media (max-width: 750px) {
+    main > section {
+        display: grid;
+        grid-template-areas:
+            "h"
+            "media"
+            "text";
+        grid-template-rows: auto auto 1fr;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    main > section > :is(h1, h2, h3, h4, h5, h6) {
+        grid-area: h;
+        margin: 2rem;
+    }
+
+    main > section > :is(img, video, iframe, figure) {
+        grid-area: media;
+        justify-self: center;
+        max-width: 90%;
+        height: auto;
+    }
+
+    main > section > p {
+        grid-area: text;
+        margin: 2rem;
+    }
+}

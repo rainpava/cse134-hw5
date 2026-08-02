@@ -5,23 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <link rel="icon" href="src/favicon.ico">
-    <link rel="stylesheet" href="styles/debug.css">
+    <script>
+        try {
+            const theme = localStorage.getItem("theme");
+            console.log(theme);
+            if (theme) {
+                document.documentElement.dataset.theme = theme;
+            }
+        } catch {
+            console.log("Could not get from localStorage");
+        }
+    </script>
+    <!-- <link id="debug-styles" rel="stylesheet" href="styles/debug.css"> -->
     <link rel="stylesheet" href="styles/tokens.css">
     <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/grid.css">
+    <script src="js/debug.js" defer></script>
+    <script src="js/index.js" defer></script>
     <title>My Experience</title>
 </head>  
 <body>
 <nav>
-    <a href="index.html">HOME</a>
-    <a href="projects.html">PROJECTS</a>
-    <a href="experience.html">EXPERIENCE</a>
-    <a href="timeline.html">TIMELINE</a>
-    <a href="about.html">ABOUT</a>
-    <a href="contact.html">CONTACT</a>
-</nav>
+    <section id="theme-picker">
+        <button type="button" aria-pressed="">DARK MODE</button>
+        <button type="button" aria-pressed="">LIGHT MODE</button>
+    </section>
+    <section id="links">
+        <a href="index.html">HOME</a>
+        <a href="projects.html">PROJECTS</a>
+        <a href="experience.html">EXPERIENCE</a>
+        <a href="timeline.html">TIMELINE</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+    </section>
 </nav>
 <main>
-
+    <section>
+        <img loading="lazy" width="400" height="200" src="src/mesa.jpg" alt="The logo for the MESA program">
+        <div class="card">
+            <h1>MESA Officer (2022 - 2024)</h1>
+            <ul>
+                <li>Led weekly meetings with other officers that saw around 30 members</li>
+                <li>Taught lowerclassmen programming fundamentals and basic python</li>
+            </ul>
+        </div>
+    </section>
 </main>
 </body>  
 </html>

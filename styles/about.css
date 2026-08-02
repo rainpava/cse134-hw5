@@ -1,0 +1,63 @@
+main {
+    display: grid;
+    grid-template-areas:
+        "about about"
+        "hobbies skills";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    margin: 2rem 4rem;
+}
+
+#about {
+    grid-area: about;
+    background-color: var(--panel-color1);
+    box-shadow: var(--panel-box-shadow);
+    border: var(--panel-border);
+    border-radius: var(--panel-border-radius);
+
+    h1 {
+        margin: 1rem;
+    }
+
+    p {
+        margin: 2rem;
+    }
+}
+
+#hobbies {
+    grid-area: hobbies;
+    background-color: var(--panel-color1);
+    box-shadow: var(--panel-box-shadow);
+    border: var(--panel-border);
+    border-radius: var(--panel-border-radius);
+}
+
+#skills {
+    grid-area: skills;
+    background-color: var(--panel-color1);
+    box-shadow: var(--panel-box-shadow);
+    border: var(--panel-border);
+    border-radius: var(--panel-border-radius);
+}
+
+#hobbies, #skills {
+    h2 {
+        margin: 1rem;
+    }
+
+    > *:not(h2) {
+        margin: 2rem;
+    }
+}
+
+@media (max-width: 750px) {
+    main {
+        grid-template-areas:
+            "about"
+            "hobbies"
+            "skills";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        margin: 1rem;
+    }
+}

@@ -5,23 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <link rel="icon" href="src/favicon.ico">
-    <link id="debug-styles" rel="stylesheet" href="styles/debug.css">
+    <script>
+        try {
+            const theme = localStorage.getItem("theme");
+            console.log(theme);
+            if (theme) {
+                document.documentElement.dataset.theme = theme;
+            }
+        } catch {
+            console.log("Could not get from localStorage");
+        }
+    </script>
+    <!-- <link id="debug-styles" rel="stylesheet" href="styles/debug.css"> -->
     <link rel="stylesheet" href="styles/tokens.css">
     <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/grid.css">
+    <script src="js/debug.js" defer></script>
+    <script src="js/index.js" defer></script>
     <title>My Projects</title>
 </head>  
 <body>
 <nav>
-    <a href="index.html">HOME</a>
-    <a href="projects.html">PROJECTS</a>
-    <a href="experience.html">EXPERIENCE</a>
-    <a href="timeline.html">TIMELINE</a>
-    <a href="about.html">ABOUT</a>
-    <a href="contact.html">CONTACT</a>
-</nav>
+    <section id="theme-picker">
+        <button type="button" aria-pressed="">DARK MODE</button>
+        <button type="button" aria-pressed="">LIGHT MODE</button>
+    </section>
+    <section id="links">
+        <a href="index.html">HOME</a>
+        <a href="projects.html">PROJECTS</a>
+        <a href="experience.html">EXPERIENCE</a>
+        <a href="timeline.html">TIMELINE</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+    </section>
 </nav>
 <main>
-
+    <h2>What I've done so far</h2>
+    <section>
+        <img loading="lazy" src="src/game.png" width="300" height="200" alt="A screenshot of a coordinate plane-based math game">
+        <div class="card">
+            <h3>Vector Space</h3>
+            <p><span class="game">Vector Space</span> is a math-based educational game created for a Software Engineering class project. The game is targeted towards students learning Algebra 1 to help them learn how to solve, recognize, and plot different types of equations.</p>
+            <a href="https://github.com/CSE110-Coblenz/cse-110-project-team-26">GitHub Repo</a>
+        </div>
+    </section>
+    <h2>What's in the works?</h2>
+    <section>   
+        <img loading="lazy" src="src/aeijee.jpg" width="200" height="200" alt="An artist's Instagram profile picture, which is a self portrait">
+        <div class="card">
+            <h3>Portfolio website</h3>
+            <p>Inspired by my client-side web dev class, I am creating a similar portfolio website for my friend who is an artist.</p>
+        </div>
+    </section>
 </main>
 </body>
   
