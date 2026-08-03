@@ -98,6 +98,17 @@ class WeatherWidget extends HTMLElement {
     }
 
     async getWeather() {
+        const lastFetch = sessionStorage.getItem("last-fetch");
+        if (lastFetch) {
+            const cached = JSON.parse(lastFetch);
+            if (Date.now() - cached.time < 600000) {
+                console.log("Using cached weather");
+                this.text.textContent =
+                    `Current Weather in La Jolla: ${cached.temperature} degrees F`;
+                return;
+            }
+        }
+
         const latitude = this.getAttribute("data-latitude");
         const longitude = this.getAttribute("data-longitude");
         this.controller = new AbortController();
@@ -125,7 +136,13 @@ class WeatherWidget extends HTMLElement {
             clearTimeout(timeout);
             const data = await response.json();
             const temperature = data.current.temperature_2m;
-
+            sessionStorage.setItem(
+                "last-fetch",
+                JSON.stringify({
+                    time: Date.now(),
+                    temperature: temperature
+                })
+            );
             console.log(temperature);
             
             this.text.textContent = `Current Weather in La Jolla: ${temperature} degrees F`;
