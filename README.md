@@ -1,0 +1,5 @@
+Note: I did not do part 3
+
+I chose to do the theme picker for Part 1. The way I implemented it was by having JavaScript add an 'enabled' class that overrode a selector that applies only if the 'enabled' class is absent.  As for the general behavior, there is a "data-theme" attribute on the HTML tag that is changed between light and dark when the respective buttons are clicked. This is then stored in localStorage for future visits. I handled FUOCs by taking advantage of the document order and placing a <script> before the CSS <link>s.
+
+For part 2, my custom component is called <weather-widget>, which fetches from the Open Meteo API. It supports the attributes "data-latitude", "data-longitude", and "data-state". The default values are the coordinates for La Jolla, and "" for the state since it's later initialized in JavaScript. Upon loading, the component just makes a fetch request to the API, and reads the temperature value from the response JSON. Since the coordinate attributes are longitude and latitude, they accept any values between 90 and -90.
